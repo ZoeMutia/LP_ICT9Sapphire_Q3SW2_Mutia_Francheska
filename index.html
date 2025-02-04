@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Calculator</title>
+    <style>
+        body {
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        details {
+            font-size: 20px;
+            background-color: #FFABAB; /* Light pink background */
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+        .calculator {
+            background: lightpink;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            width: 500px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .calculator input {
+            width: 80%;
+            padding: 15px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .btn {
+            width: 45%;
+            margin: 10px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            color: white;
+        }
+        .pastel-green { background: #A8E6CF; }
+        .pastel-yellow { background: #FFE156; }
+        .pastel-pink { background: #FFABAB; }
+        .pastel-blue { background: #D4E6F1; }
+        .pastel-purple { background: #D0A9F5; }
+        .pastel-orange { background: #FF9B85; }
+        .btn:hover {
+            opacity: 0.8;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <details ontoggle="message()">
+            <summary>Instruction</summary>
+            <i>Enter the two numbers then find its answer</i>
+        </details>
+    </div>
+
+    <div class="calculator">
+        <h2>Math Calculator</h2>
+        <label>Enter a value for <b>a</b>:</label>
+        <input type="number" id="num1" placeholder="Type here...">
+        
+        <label>Enter a value for <b>b</b>:</label>
+        <input type="number" id="num2" placeholder="Type here...">
+
+        <div class="btn-container">
+            <button class="btn pastel-green" onclick="product()">Product of a and b</button>
+            <button class="btn pastel-yellow" onclick="power()">a raised to b</button>
+            <button class="btn pastel-pink" onclick="remainder()">Get the remainder</button>
+            <button class="btn pastel-blue" onclick="checkEquality()">Check if a is equal to b</button>
+            <button class="btn pastel-purple" onclick="add()">Addition of a and b</button>
+            <button class="btn pastel-orange" onclick="subtract()">Subtraction of a and b</button>
+        </div>
+
+        <p id="result">Result: </p>
+    </div>
+
+    <script>
+        function product() {
+            let a = Number(document.getElementById("num1").value);
+            let b = Number(document.getElementById("num2").value);
+            document.getElementById("result").innerText = "Result: " + (a * b);
+        }
+
+        function power() {
+            let a = Number(document.getElementById("num1").value);
+            let b = Number(document.getElementById("num2").value);
+            document.getElementById("result").innerText = "Result: " + Math.pow(a, b);
+        }
+
+        function remainder() {
+            let a = Number(document.getElementById("num1").value);
+            let b = Number(document.getElementById("num2").value);
+            document.getElementById("result").innerText = "Result: " + (a % b);
+        }
+
+        function checkEquality() {
+            let a = Number(document.getElementById("num1").value);
+            let b = Number(document.getElementById("num2").value);
+            let message = a === b ? "a is equal to b" : "a is NOT equal to b";
+            document.getElementById("result").innerText = "Result: " + message;
+        }
+
+        function add() {
+            let a = Number(document.getElementById("num1").value);
+            let b = Number(document.getElementById("num2").value);
+            document.getElementById("result").innerText = "Result: " + (a + b);
+        }
+
+        function subtract() {
+            let a = Number(document.getElementById("num1").value);
+            let b = Number(document.getElementById("num2").value);
+            document.getElementById("result").innerText = "Result: " + (a - b);
+        }
+    </script>
+
+</body>
+</html>
+
+
